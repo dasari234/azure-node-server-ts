@@ -8,8 +8,7 @@
     "start": "tsc && npm run serve",
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
-    "watch-ts": "tsc -w",
-    "postinstall": "node_modules\typescript\bin\tsc -p"
+    "watch-ts": "tsc -w"
   },
   "author": "",
   "license": "ISC",
