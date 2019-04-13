@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxyConfig.json",
-    "build": "ng build --prod",
+    "start": "npm run build & concurrently --kill-others  \"npm run serve\"",
+    "serve": "ng serve --proxy-config proxyConfig.json",
+    "build": "ng build --output-path=public",
+    "serve-api": "node server/dist/server.js",
+    "node-server": "node server/dist/server.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "start-server": "nodemon --exec ts-node server/src/server.ts",
-    "server": "concurrently \"npm run start\" \"npm run start-server\""
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -31,7 +32,9 @@
     "font-awesome": "^4.7.0",
     "rxjs": "~6.3.3",
     "typescript": "~3.1.1",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "tslint": "~5.11.0",
+    "@types/express": "^4.16.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
