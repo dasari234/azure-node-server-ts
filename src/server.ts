@@ -1,8 +1,5 @@
-import { routes } from './routes/route';
 import express from 'express';
-import path from 'path';
-
-import  bodyParser from 'body-parser';
+import { routes } from './routes/routes';
 
 const app = express();
 const port=process.env.PORT || 9000;
@@ -17,15 +14,9 @@ app.use((req, res, next) => {
         console.log(`${req.ip} ${req.method} ${req.url}`);
         next();
     }
-});
-
-
+})
 
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
